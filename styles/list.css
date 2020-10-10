@@ -1,0 +1,42 @@
+ul{
+  list-style-type: none;
+  width: 65%;
+  border: 1px solid red;
+  margin: 1em auto;
+  padding: 0;
+  clear: both;
+}
+
+li{
+  color: saddlebrown;
+  font-size: 1.3em;
+  text-align: left;
+  margin: 0.3em 1em;
+  clear: both;
+}
+
+li:first-letter{
+  text-transform: uppercase;
+}
+
+.delete{
+  float: right;
+}
+
+.delete:hover{
+  cursor: pointer;
+  color: chocolate;
+  transition: color 0.5s;
+}
+
+#inserted{
+  color: seagreen;
+  font-weight: bold;
+  font-size: 1.3em;
+}
+
+#warning{
+  color: firebrick;
+  font-weight: bold;
+  font-size: 1.3em;
+}
