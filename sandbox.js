@@ -4,14 +4,12 @@ window.onload = function(){
   var container = document.querySelector(".container");
   var form = document.forms[0];
   var input = form.querySelector("input[type='text']");
-  var submit = form.querySelector("input[type='submit']");
   var clearAll = document.querySelector(".clear-all button");
   var ul = document.querySelector("ul");
 
-  // submit.innerHTML = "<i class='fas fa-pen-square'></i>";
-
   var time = new Date();
   var date = document.createElement("p");
+  date.id = "date";
   var year = time.getFullYear();
 
   // Setting up actual time
@@ -37,7 +35,7 @@ window.onload = function(){
   }
 
   function addItem(a){
-    ul.innerHTML += `<li>${a}<span><i class="fas fa-trash delete"></i></span></li>`;
+    ul.innerHTML += `<li>${a}<span class="delete"><i class="fas fa-trash"></i></span></li>`;
   }
 
   // Add event listener to submit a grocery on the list
@@ -55,7 +53,7 @@ window.onload = function(){
       container.insertBefore(inserted, form);
       setTimeout(function(){
         container.removeChild(inserted);
-      }, 4000);
+      }, 1500);
       form.reset();
     } else{
       var alert = document.createElement("p");
@@ -64,10 +62,21 @@ window.onload = function(){
       container.insertBefore(alert, form);
       setTimeout(function(){
         container.removeChild(alert);
-      }, 4000);
+      }, 1500);
     }
 
+  });
 
+  ul.addEventListener("click", function(e){
+    e.stopPropagation();
+    if(e.target.parentNode.className === "delete"){
+      var li = e.target.parentNode.parentNode;
+      ul.removeChild(li);
+    };
+  });
+
+  clearAll.addEventListener("click", function(){
+    ul.innerHTML = "";
   });
 
 }
