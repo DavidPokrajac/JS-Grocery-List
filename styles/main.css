@@ -1,0 +1,82 @@
+body{
+  margin: 0;
+  padding: 0;
+  background-color: burlywood;
+  font-family: 'Merriweather', serif;
+}
+/*    . ; , :    */
+.container{
+  margin: 1em auto;
+  width: 70%;
+  padding: 1em;
+  text-align: center;
+  border: 1px solid red;
+}
+
+h1{
+  font-size: 2.5em;
+}
+
+#date{
+  font-style: italic;
+  font-size: 1.5em;
+}
+
+form{
+  display: flex;
+  justify-content: center;
+  margin: 2em 0;
+}
+
+input[type="text"]{
+  width: 55%;
+  font-size: 1em;
+  padding: 0.5em;
+  font-family: inherit;
+  border: 2px solid saddlebrown;
+  color: saddlebrown;
+  background-color: bisque;
+}
+
+input[type="text"]::placeholder{
+  color: saddlebrown;
+  font-style: italic;
+  font-weight: bold;
+}
+
+input[type="submit"]{
+  display: inline-block;
+  font-size: 1em;
+  font-family: inherit;
+  padding: 0.5em;
+  color: saddlebrown;
+  background-color: sandybrown;
+  border: 2px solid saddlebrown;
+  border-left: none;
+}
+
+input[type="submit"]:hover{
+  cursor: pointer;
+  background-color: saddlebrown;
+  color: bisque;
+  transition: background-color 1s, color 1s;
+}
+
+button{
+  display: inline-block;
+  font-size: 1.2em;
+  width: 30%;
+  font-family: inherit;
+  padding: 0.5em;
+  color: saddlebrown;
+  background-color: sandybrown;
+  border: 2px solid saddlebrown;
+  margin: 1em auto;
+}
+
+button:hover{
+  cursor: pointer;
+  background-color: saddlebrown;
+  color: bisque;
+  transition: background-color 1s, color 1s;
+}
