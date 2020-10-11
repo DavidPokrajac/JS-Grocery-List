@@ -55,6 +55,7 @@ window.onload = function(){
         container.removeChild(inserted);
       }, 1500);
       form.reset();
+      addStorage(value);
     } else{
       var alert = document.createElement("p");
       alert.id = "warning";
@@ -67,6 +68,8 @@ window.onload = function(){
 
   });
 
+  loadItems();
+
   ul.addEventListener("click", function(e){
     e.stopPropagation();
     if(e.target.parentNode.className === "delete"){
@@ -77,6 +80,33 @@ window.onload = function(){
 
   clearAll.addEventListener("click", function(){
     ul.innerHTML = "";
+    clearStorage();
   });
+
+  function addStorage(val){
+    var items;
+
+    if(localStorage.getItem("groceries")){
+      items = JSON.parse(localStorage.getItem("groceries"));
+    } else{
+      items = [];
+    }
+
+    items.push(val);
+    localStorage.setItem("groceries", JSON.stringify(items));
+  }
+
+  function clearStorage(){
+    localStorage.removeItem("groceries");
+  }
+
+  function loadItems(){
+    var items = JSON.parse(localStorage.getItem("groceries"));
+    items.forEach(function(item){
+      var li = document.createElement("li");
+        li.textContent = item;
+        ul.appendChild(li);
+    });
+  }
 
 }
